@@ -1,0 +1,20 @@
+<div class="thumbs-container">
+  <div class="controls">
+    <button (click)="prevImage()" data-test-id="prev-slide-btn">
+      <mat-icon>arrow_back</mat-icon> 
+    </button>
+    
+    <button
+      *ngFor="let img of images; let i = index"
+      (click)="select(i)"
+      [attr.data-test-id]="'thumb-button-' + i"
+      [class.active]="i === currentIndex"
+    >
+      <img [src]="img" alt="Thumbnail">
+    </button>
+
+    <button (click)="nextImage()" data-test-id="next-slide-btn">
+      <mat-icon>arrow_forward</mat-icon> 
+    </button>
+  </div>
+</div>
